@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>Twitter_users</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <link href='//fonts.googleapis.com/css?family=Lobster&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+</head>
+<body>
+        <div class="page-header">
+            <a style="float: right; margin-right: 20px" href="{% url 'user_new' %}" class="top-menu"><span class="glyphicon glyphicon-plus" style="font-size: 20px;" ></span></a>
+            <h1><a href="/">Twitter Checker ユーザ登録リスト</a></h1>
+        </div>
+  <div class="content container">
+    <div class="row">
+      <div class="col-md-8 offset-md-2">
+          {% if twitter_users %}
+         <table class="table table-hover table-striped">
+          <tbody>
+            <tr>
+                <th>Twitter ID</th>
+                <th></th>
+
+            </tr>
+            {% for users in twitter_users %}
+            <tr>
+{#              <td><a href="{% url 'detail' users.id %}">{{ users.name }}</a>#}
+              <td>{{ users.name }}</td>
+                <td><a href="{% url 'delete' users.id %}" class="btn btn-primary">Delete</a></td>
+            </tr>
+            {% endfor %}
+          </tbody>
+        </table>
+      {% else %}
+        <p>登録されているTwitterアカウントは存在しません。</p>
+      {% endif %}
+      </div>
+    </div>
+  </div>
+</body>
+</html>

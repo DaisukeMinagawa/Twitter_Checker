@@ -1,0 +1,1 @@
+python C:\Users\a\Dropbox\!Python\Twitter\bukiyouna_senpai\Twit_checker\main.py
